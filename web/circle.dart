@@ -16,7 +16,7 @@ CanvasRenderingContext2D context2 = canvas2.getContext('2d');
   CanvasElement canvas3 = document.querySelector('#canvas3');
   CanvasRenderingContext2D context3 = canvas3.getContext('2d');
   //  Browser will not render the circle over-lays.....bug
-  //  CanvasRenderingContext2D context3b = canvas3.getContext('2d');
+  CanvasRenderingContext2D context3b = canvas3.getContext('2d');
 
 
   // set the circle parameters
@@ -48,10 +48,11 @@ CanvasRenderingContext2D context2 = canvas2.getContext('2d');
   context3.lineCap = 'round';
   context3.stroke();
 
-  //Draw Circle 3b bug
-  //context3b.arc(x, y, radius, 0.5*PI, end_angle, true);
-  //context3b.lineWidth = 16;
-  //context3b.strokeStyle = '#eeeeee';
-  //context3b.lineCap = 'round';
-  //context3b.stroke();
+  //Draw Circle 3b bug Dart renderd context3 and context3b as a single shape
+  //Comment out the context3b objects to see proper rendering.
+  context3b.arc(x, y, 20, 0.5*PI, end_angle, true);
+  context3b.lineWidth = 16;
+  context3b.strokeStyle = '#eeeeee';
+  context3b.lineCap = 'round';
+  context3b.stroke();
 }
