@@ -18,6 +18,13 @@ CanvasRenderingContext2D context2 = canvas2.getContext('2d');
   //  Browser will not render the circle over-lays.....bug
   CanvasRenderingContext2D context3b = canvas3.getContext('2d');
 
+//Fourth Circle
+ CanvassElement canvas4 = document.querySelector('#test');
+  CanvasRenderingContext2D context4 = canvas4.getContext('2d');
+
+//Fifth Circle
+  CanvassElement canvas5 = document.querySelector('#test1');
+  CanvasRenderingContext2D context5 = canvas5.getContext('2d');
 
   // set the circle parameters
   var x = 100;
@@ -42,17 +49,32 @@ CanvasRenderingContext2D context2 = canvas2.getContext('2d');
   context2.lineCap = 'round';
   context2.stroke();
 
+
+  // The browser/dart/js/css cannot draw two shapes on a single canvass?
   context3.arc(x, y, radius, 0.5*PI, end_angle, false);
   context3.lineWidth = 16;
   context3.strokeStyle = '#1dc4b1';
   context3.lineCap = 'round';
   context3.stroke();
 
-  //Draw Circle 3b bug Dart renderd context3 and context3b as a single shape
-  //Comment out the context3b objects to see proper rendering.
   context3b.arc(x, y, 20, 0.5*PI, end_angle, true);
   context3b.lineWidth = 16;
   context3b.strokeStyle = '#eeeeee';
   context3b.lineCap = 'round';
   context3b.stroke();
+
+  // But...drawing two seperate shapes in stacked DIV tags will work!!
+  // This is the base circle.  It's complete
+  context4.arc(x, y, radius, 0*PI, 2*PI, false);
+  context4.lineWidth = 16;
+  context4.strokeStyle = 'white';
+  context4.lineCap = 'butt';
+  context4.stroke();
+  // This is the overlay that represents progress
+  // I have the radians messed up...but you get the point.
+  context5.arc(x, y, radius, 1.5*PI, 2.5*PI, false);
+  context5.lineWidth = 16;
+  context5.strokeStyle = 'orange';
+  context5.lineCap = 'butt';
+  context5.stroke();
 }
